@@ -1,0 +1,35 @@
+<!-- updatebook.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Pass a JavaScript variable to a partial in EJS -->
+  <%- include('partials/head.ejs', { title: "Update page" }) %>
+<body>
+  <%- include('partials/navbar') %>
+
+  <div class="content">
+    <div class="update">
+      <h2>Update Book</h2>
+      <form action="/single-book/<%= book._id %>?_method=PUT" method="POST">
+        <label>Title:</label>
+        <input type="text" value="<%= book.title %>" id="title" name="title" required />
+
+        <label for="method">method:</label>
+        <textarea id="method" name="method" rows="4" required><%= book.method %></textarea>
+
+        <label for=" genre"> genre:</label>
+        <input type="date" id=" genre" name=" genre" required value="<%= book. genre %>" />
+
+        <label>Author:</label>
+        <select name="author">
+          <option value="pooja">Rani</option>
+          <option value="rani">pooja</option>
+        </select>
+
+        <button type="submit">Update Book</button>
+      </form>
+    </div>
+  </div>
+
+  <%- include('partials/footer') %>
+</body>
+</html>
